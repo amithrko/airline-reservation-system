@@ -191,7 +191,7 @@ def signup():
 	print(fname)
 	lname=request.form['l_name'].upper()
 	print(lname)
-	country=request.form['countrey'].upper()
+	country=request.form['country'].upper()
 	print(country)
 	gender=request.form['group1'].upper()
 	print(gender)
@@ -210,7 +210,7 @@ def signup():
 	cur.execute("select pnr_id from passenger")
 	idch=cur.fetchall()
 	pnr=(choice([i for i in range(0,999) if i not in idch]))
-	cur.execute("insert into  passenger (pnr_id,address,nationality,name,gender,ph_no,passport,email,password,dob,lastname) values("+str(pnr)+",\""+address+"\",\""+countrey+"\",\""+fname+"\",\""+gender+"\","+phone+",\""+passport+"\",\""+email+"\",\""+password+"\","+str(dob)+",\""+lname+"\")")
+	cur.execute("insert into  passenger (pnr_id,address,nationality,name,gender,ph_no,passport,email,password,dob,lastname) values("+str(pnr)+",\""+address+"\",\""+country+"\",\""+fname+"\",\""+gender+"\","+phone+",\""+passport+"\",\""+email+"\",\""+password+"\","+str(dob)+",\""+lname+"\")")
 	conn.commit();
 	conn.close()
 	return render_template('chatHome.html')
