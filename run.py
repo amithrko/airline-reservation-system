@@ -210,8 +210,14 @@ def signup():
 	cur.execute("select pnr_id from passenger")
 	idch=cur.fetchall()
 	pnr=(choice([i for i in range(0,999) if i not in idch]))
-	cur.execute("insert into  passenger (pnr_id,address,nationality,name,gender,ph_no,passport,email,password,dob,lastname) values("+str(pnr)+",\""+address+"\",\""+countrey+"\",\""+fname+"\",\""+gender+"\","+phone+",\""+passport+"\",\""+email+"\",\""+password+"\","+str(dob)+",\""+lname+"\")")
-	conn.commit();
+	try:
+		cur.execute("insert into  passenger (pnr_id,address,nationality,name,gender,ph_no,passport,email,password,dob,lastname) values("+str(pnr)+",\""+address+"\",\""+countrey+"\",\""+fname+"\",\""+gender+"\","+phone+",\""+passport+"\",\""+email+"\",\""+password+"\","+str(dob)+",\""+lname+"\")")
+		conn.commit();
+	
+	else:
+		alert("Error");
+	
+	
 	conn.close()
 	return render_template('chatHome.html')
 
