@@ -33,7 +33,7 @@ def chat1():
 		return render_template('chat1.html')
 
 	
-@app.route("/chat11",methods=['post'])
+@app.route("/chat11",methods=['GET'])
 def chat11():
 	if email==0:
 		return render_template('login.html')
@@ -52,7 +52,7 @@ def chat11():
 		
 	
 	
-@app.route("/chat41",methods=['post'])
+@app.route("/chat41",methods=['GET'])
 def chat41():
 	if email==0:
 		return render_template('login.html')
@@ -73,7 +73,7 @@ def chat41():
 
 
 	
-@app.route("/chat42",methods=['post'])
+@app.route("/chat42",methods=['GET'])
 def chat42():
 	global email
 	if email==0:
@@ -120,7 +120,7 @@ def chat42():
 		
 	
 	
-@app.route("/chat21",methods=['post'])
+@app.route("/chat21",methods=['GET'])
 def chat21():
 	if email!=0:
 		return render_template('login.html')
@@ -138,7 +138,7 @@ def chat21():
 		
 	
 	
-@app.route("/chat31",methods=['post'])
+@app.route("/chat31",methods=['GET'])
 def chat31():
 	if email!=0:
 		return render_template('login.html')
@@ -182,7 +182,7 @@ def chat4():
 		return render_template('chat4.html')
 	
 # signing up
-@app.route("/signup",methods=['POST'])
+@app.route("/signup",methods=['GET'])
 def signup():
 	global email
 	conn=sql.connect('mydatabase.db')
@@ -216,7 +216,7 @@ def signup():
 	return render_template('chatHome.html')
 
 #logging in
-@app.route("/login",methods=['POST'])
+@app.route("/login",methods=['GET'])
 def login():
 	conn=sql.connect('mydatabase.db')
 	cur=conn.cursor()
