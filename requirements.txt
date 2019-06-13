@@ -21,6 +21,5 @@ six==1.11.0
 uritemplate==3.0.0
 gunicorn==19.7.1
 cmake==3.11.4
-dlib==19.15.0
 
 
